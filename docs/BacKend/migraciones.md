@@ -1,8 +1,62 @@
 ---
 sidebar_position: 3
 ---
-
 # Migraciones
+### Modelo ER
+Este es el modelo entidad/relación de nuestra BB.DD.
+<p align="center">
+  <img src="/img/modelo.png" alt="Descripción de la imagen"/>
+</p>
+
+### Creación de relaciones
+
+En Laravel, puedes crear relaciones entre tablas usando migraciones. Aquí hay un ejemplo de código que muestra cómo crear una relación de uno a muchos:
+```php
+<?php
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreatePostsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->text('body');
+            $table->unsignedInteger('user_id');
+            $table->timestambash();
+            
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('posts');
+    }
+}
+?>
+```
+:::tip Explicación
+En este ejemplo, se está creando una tabla posts con una columna user_id que hace referencia a la columna id en la tabla users. La opción onDelete('cascade') indica que si un usuario es eliminado, sus publicaciones también deben ser eliminadas.
+
+Luego de crear la migración, debes ejecutar el comando php artisan migrate para aplicar los cambios en la base de datos. Para más información consulte [la documentació oficial](httbash://laravel.com/docs/9.x/readme)
+:::
+
 
 ## ¿Qué es una migración?
 
@@ -14,16 +68,16 @@ Además, las migraciones también proporcionan un mecanismo para revertir los ca
 
 En resumen, las migraciones en Laravel son una herramienta esencial para el desarrollo de aplicaciones que requieren una gestión de base de datos robusta y fácil de usar.
 :::tip Para saber más
-Para más información consulte [la documentación oficial de Laravel.](https://laravel.com/docs/9.x/migrations#generating-migrations)
+Para más información consulte [la documentación oficial de Laravel.](httbash://laravel.com/docs/9.x/migrations#generating-migrations)
 :::
 
 ## Generando migraciones en Laravel
 
 Tecle el siguiente comando para crear la migración de la tabla categorias.
 
-´´´bash
+```bash
 php artisan make:migration create_categorias_table
-´´´´
+```
 
 Para generar una migración en Laravel 9, puedes usar el comando Artisan make:migration:
 
@@ -78,7 +132,7 @@ return new class extends Migration
             $table->string("nombre",150)->Unique();
             $table->text("descripcion");
             $table->text("imagen")->nullable();
-            $table->timestamps();
+            $table->timestambash();
         });
     }
 
@@ -93,6 +147,39 @@ return new class extends Migration
     }
 };
 ```
+:::tip tipos de datos más comunes en Laravel
+En Laravel, los tipos de datos en las migraciones se refieren a las especificaciones de los tipos de columnas en las tablas de la base de datos. Algunos de los tipos de datos más comunes incluyen:
+
+- bigIncrements: Incremento automático de ID grande
+- bigInteger: Entero grande
+- binary: Datos binarios
+- boolean: Valor booleano
+- char: Cadena fija de longitud
+- date: Fecha
+- dateTime: Fecha y hora
+- decimal: Número decimal con precisión y escala específicas
+- double: Número de punto flotante de doble precisión
+- enum: Valor de una lista predefinida
+- float: Número de punto flotante
+- increments: Incremento automático de ID
+- integer: Entero
+- json: Datos en formato JSON
+- longText: Texto largo
+- mediumText: Texto de tamaño medio
+- smallInteger: Entero pequeño
+- string: Cadena
+- text: Texto
+- time: Tiempo
+- timestamp: Marca de tiempo
+- unsignedBigInteger: Entero grande sin signo
+- unsignedInteger: Entero sin signo.
+
+Estos son algunos de los tipos de datos más comunes que puedes usar en tus migraciones en Laravel.
+:::
+
+
+
+
 
 
 El código crea una clase anónima que extiende la clase Migration de Illuminate y define dos métodos: up() y down().
@@ -139,7 +226,7 @@ return new class extends Migration
             $table->text("imagen")->nullable();
             $table->unsignedBigInteger("categoria_id");
             $table->foreign("categoria_id")->references("id")->on("categorias");
-            $table->timestamps();
+            $table->timestambash();
             
         });
     }
@@ -201,7 +288,7 @@ return new class extends Migration
             $table->id();
             $table->float("tanto_porciento",4,2);
             $table->string("nombre",50);
-            $table->timestamps();
+            $table->timestambash();
         });
     }
 
@@ -256,7 +343,7 @@ return new class extends Migration
             $table->foreign("iva_id")->references("id")->on("ivas");
             $table->unsignedBigInteger("marca_id");
             $table->foreign("marca_id")->references("id")->on("marcas");
-            $table->timestamps();
+            $table->timestambash();
         });
     }
 
@@ -308,7 +395,7 @@ return new class extends Migration
             $table->unsignedBigInteger("producto_id");
             $table->foreign("producto_id")->references("id")->on("productos");
 
-            $table->timestamps();
+            $table->timestambash();
         });
     }
 
@@ -359,7 +446,7 @@ return new class extends Migration
             $table->string("calle");
             $table->integer("numero");
             $table->text("notas")->nullable();
-            $table->timestamps();
+            $table->timestambash();
         });
     }
 
@@ -376,16 +463,383 @@ return new class extends Migration
 };
 ```
 
+### Tabla producto_proveedor
+
+Para crear la migración ejecute el siguiente comando desde su terminal.
+
+```bash title="Migración de producto_proveerdor"
+php artisan make:migration create_producto_proveedor_table
+```
+Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
+
+:::tip información
+Esta tabla se utiliza para crear una relación mucho a muchos entre productos y proveedores.
+:::
 
 
+Sustituya el código generado por el siguinte código:
+```PHP
+<?php
 
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('producto_proveedor', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger("producto_id");
+            $table->unsignedBigInteger("proveedor_id");
+            $table->foreign("producto_id")->references("id")->on("productos");
+            $table->foreign("proveedor_id")->references("id")->on("proveedores");
+            $table->timestambash();
+        });
+    }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('producto_proveedor');
+    }
+};
+```
+La migración crea una tabla llamada "producto_proveedor" en la base de datos que tendrá los siguientes campos:
 
+- **id:** campo de identificación (clave primaria) que se generará automáticamente
+- **producto_id:** campo que almacena la identificación de un producto
+- **proveedor_id:** campo que almacena la identificación de un proveedor
+- **timestambash:** dos campos de tiempo que registran la fecha y hora de creación y actualización de cada registro en la tabla.
 
+Además, establece relaciones entre la tabla "producto_proveedor" y las tablas "productos" y "proveedores" mediante claves foráneas. La función "up" se utiliza para aplicar la migración y crear la tabla, mientras que la función "down" se utiliza para revertir la migración y eliminar la tabla.
 
+### Tabla provincias
 
+Para crear la migración ejecute el siguiente comando desde su terminal.
 
+```bash title="Migración de provincias"
+php artisan make:migration create_provincias_table
+```
+Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
 
+Sustituya el código generado por el siguinte código:
+```PHP
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('provincias', function (Blueprint $table) {
+            $table->id();
+            $table->string("codigo",2)->unique();
+            $table->string("nombre");
+            $table->timestambash();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('provincias');
+    }
+};
+
+```
+La migración crea una tabla llamada provincias donde se guaradaran todas las provincias de España.
+
+### Tabla poblaciones
+
+Para crear la migración ejecute el siguiente comando desde su terminal.
+
+```bash title="Migración de poblaciones"
+php artisan make:migration create_poblaciones_table
+```
+Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
+
+Sustituya el código generado por el siguinte código:
+```PHP
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('poblaciones', function (Blueprint $table) {
+            $table->id();
+            $table->string("codigo",5)->unique();
+            $table->string("nombre");
+            $table->string("provincia_cod",2);
+            $table->foreign("provincia_cod")->references("codigo")->on("provincias");
+            $table->timestambash();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('poblaciones');
+    }
+};
+
+```
+La migración crea una tabla llamada poblaciones donde se guaradaran todas las provincias de España.
+
+### Modificando la tabla proveedores
+
+En la siguiente migración modificaremos la tabla proveedores.
+
+```bash title="Modficación de la tabla proveedores"
+php artisan make:migration add_foreign_key_proveedores_table
+```
+Sustituya el código generador por el siguiente código:
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+    
+        DB::statement("CREATE OR REPLACE
+        VIEW `v_productos` AS
+        SELECT 
+            `p`.`id` AS `id`,
+            `p`.`nombre` AS `nombre`,
+            `p`.`descripcion` AS `descripcion`,
+            `p`.`iva_id` AS `iva_id`,
+            `s`.`nombre` AS `subcategoria`,
+            `c`.`nombre` AS `categoria`,
+            `m`.`nombre` AS `marca`,
+            `p`.`imagen` AS `imagen`
+        FROM
+            (((`productos` `p`
+            LEFT JOIN `subcategorias` `s` ON ((`p`.`subcategoria_id` = `s`.`id`)))
+            JOIN `categorias` `c` ON ((`c`.`id` = `s`.`categoria_id`)))
+            JOIN `marcas` `m` ON ((`m`.`id` = `p`.`marca_id`))) ORDER BY CATEGORIA,SUBCATEGORIA;");
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        DB::statement('DROP VIEW v_productos;');
+    }
+};
+
+```
+ La migración modifica la tabla "proveedores" agregándole una relación con la tabla "poblaciones" mediante una clave foránea. La columna "cod_postal" de la tabla "proveedores" se vincula con la columna "codigo" de la tabla "poblaciones". 
+
+## Creación de vistas
+
+### Vista v_productos
+Ejecute la siguiente orde en su consola o terminal:
+
+```bash title="Creación vista v_productos"
+php artisan make:migration create_view_productos
+```
+:::tip Explicación de la vista
+La migración crea una vista llamada "v_productos" en la base de datos. La vista es una selección de información de varias tablas (productos, subcategorias, categorias y marcas) con una combinación de JOINs y proyecciones de columnas. La función "up" se utiliza para crear la vista, mientras que la función "down" se utiliza para eliminar la vista en caso de que sea necesario revertir la migración. La cláusula "ORDER BY" ordena los resultados de la vista por categoría y subcategoría.
+:::
+
+Sustituya el código generado por el siguiente código:
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+    
+        DB::statement("CREATE OR REPLACE
+        VIEW `v_productos` AS
+        SELECT 
+            `p`.`id` AS `id`,
+            `p`.`nombre` AS `nombre`,
+            `p`.`descripcion` AS `descripcion`,
+            `p`.`iva_id` AS `iva_id`,
+            `s`.`nombre` AS `subcategoria`,
+            `c`.`nombre` AS `categoria`,
+            `m`.`nombre` AS `marca`,
+            `p`.`imagen` AS `imagen`
+        FROM
+            (((`productos` `p`
+            LEFT JOIN `subcategorias` `s` ON ((`p`.`subcategoria_id` = `s`.`id`)))
+            JOIN `categorias` `c` ON ((`c`.`id` = `s`.`categoria_id`)))
+            JOIN `marcas` `m` ON ((`m`.`id` = `p`.`marca_id`))) ORDER BY CATEGORIA,SUBCATEGORIA;");
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        DB::statement('DROP VIEW v_productos;');
+    }
+};
+```
+### Vista v_ofertas
+
+Ejecute el siguiente comando en su terminal:
+
+```bash title="Creación vista v_ofertas"
+php artisan make:migration create_view_ofertas
+```
+:::tip Explicación de la vista
+Este código define una migración en PHP para la creación y eliminación de una vista en una base de datos relacional. La vista se llama "v_ofertas" y se crea a partir de una unión de los datos de las tablas "v_productos" y "ofertas". La vista incluirá las siguientes columnas: "id", "nombre", "descripción", "iva_id", "subcategoría", "categoría", "marca", "imAGEN", "descripción_oferta" y "id_oferta". La función "down" se utiliza para eliminar la vista.
+:::
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+    
+        DB::statement("CREATE OR REPLACE
+        ALGORITHM = UNDEFINED 
+        DEFINER = `admin`@`localhost` 
+        SQL SECURITY DEFINER
+    VIEW `v_ofertas` AS
+        SELECT 
+            `v`.`id` AS `id`,
+            `v`.`nombre` AS `nombre`,
+            `v`.`descripcion` AS `descripcion`,
+            `v`.`iva_id` AS `iva_id`,
+            `v`.`subcategoria` AS `subcategoria`,
+            `v`.`categoria` AS `categoria`,
+            `v`.`marca` AS `marca`,
+            `v`.`imAGEN` AS `imAGEN`,
+            `o`.`descripcion` AS `descripcio_oferta`,
+            `o`.`id` AS `id_oferta`
+        FROM
+            (`v_productos` `v`
+            JOIN `ofertas` `o` ON ((`v`.`id` = `o`.`producto_id`)));");
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        DB::statement("DROP VIEW v_ofertas");
+    }
+};
+```
+
+### Vista v_proveedor
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        
+        DB::statement("CREATE OR REPLACE v_proveedores AS SELECT pr.*,pob.nombre as poblacion,pro.nombre as provincia 
+        FROM comercio.proveedores pr INNER JOIN poblaciones pob ON pr.cod_postal=pob.codigo
+        INNER JOIN provincias pro ON pro.codigo=pob.provincia_cod;");
+    }
+    
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('v_proveedores');
+    }
+};
+?>
+```
 
 
