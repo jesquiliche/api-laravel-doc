@@ -305,8 +305,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 {
-    protected $table="productos";
     use HasFactory;
+    protected $table="productos";
+    
 
     protected $fillable = [
         'nombre',
@@ -532,8 +533,106 @@ También puedes consultar registros existentes de la tabla de "Provincias" de la
 $provincias = Provincia::all();
 Esto te dará una colección de todos los registros en la tabla "provincias".
 ```
+### Modelo Poblacion
 
+Ejecute el siguiente comando en su terminal:
 
+```bash
+php artisan make:model Poblacion
+```
 
+Una vez ejecutado el comando, diríjase a la carpeta **App/Models** y edite el fichero **"Poblacion"**. Substituya el código generado por el siguiente código:
 
+```js title="app\Models\Poblacion.php"
+<?php
 
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Poblacion extends Model
+{
+    use HasFactory;
+    protected $table="poblaciones";
+    protected $fillable = ['codigo','nombre'];
+    
+}
+```
+Este es una definición de clase PHP para un modelo Eloquent en el marco de trabajo Laravel. La clase se llama **"Poblacion"** y extiende la clase **"Model"**
+incorporada. La clase representa una tabla de base de datos **"poblaciones"** y especifica qué columnas en esa tabla se pueden llenar con datos (la propiedad **"fillable"**) - en este caso, **"codigo"** y **"nombre"**.
+
+### Modelo Proveedor
+
+Ejecute el siguiente comando en su terminal:
+
+```bash
+php artisan make:model Proveedor
+```
+
+Una vez ejecutado el comando, diríjase a la carpeta **App/Models** y edite el fichero **"Proveedor"**. Substituya el código generado por el siguiente código:
+
+```js title="app\Models\Proveedor.php"
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Proveedor extends Model
+{
+    protected $table="proveedores";
+    use HasFactory;
+    protected $fillable = [
+        'nif',
+        'nombre',
+        'cod_postal',
+        'cod_provincia',
+        'calle',
+        'numero',
+        'notas'
+    ];
+    public function productos(){
+        return $this->BelongsToMany('App\Models\Producto');
+    }
+}
+```
+Este es un modelo de Laravel para una tabla de **"Proveedores"**. La clase extiende de Illuminate\Database\Eloquent\Model, lo que significa que está siendo utilizada como un modelo Eloquent.
+
+El atributo **$table** especifica el nombre de la tabla en la base de datos a la que está asociada este modelo.
+
+El atributo **$fillable** especifica los campos que pueden ser asignados masivamente (por ejemplo, cuando se crea o se actualiza un registro en la tabla de "Proveedores").
+
+El trait HasFactory proporciona una forma conveniente de crear nuevos registros en la tabla utilizando fábricas, lo que puede ser útil en desarrollo y pruebas.
+
+El método productos define una relación **"muchos a muchos"** con la tabla **"Productos"**. Esta relación significa que un proveedor puede proporcionar múltiples productos y un producto puede ser proporcionado por múltiples proveedores.
+
+Con este modelo, puedes interactuar con la tabla **"proveedores"** en la base de datos usando las capacidades de Laravel. Por ejemplo, puedes consultar registros existentes o crear nuevos registros con una llamada simple al modelo:
+
+```js 
+$proveedor = new Proveedor();
+$proveedor->nif = '12345678A';
+$proveedor->nombre = 'Proveedor S.A.';
+$proveedor->cod_postal = '1234';
+$proveedor->cod_provincia = '01';
+$proveedor->calle = 'Calle 1';
+$proveedor->numero = '1';
+$proveedor->notas = 'Notas adicionales';
+$proveedor->save();
+```
+
+También puedes consultar registros existentes de la tabla de "Proveedores" de la siguiente manera:
+
+```js
+$proveedores = Proveedor::all();
+```
+
+Esto te dará una colección de todos los registros en la tabla "proveedores". Además, puedes acceder a los productos asociados con un proveedor determinado de la siguiente manera:
+
+```js
+$proveedor = Proveedor::find(1);
+$productos = $proveedor->productos;
+```
+
+Esto te dará una colección de todos los productos asociados con el proveedor con id 1.
