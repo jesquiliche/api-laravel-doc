@@ -3,16 +3,21 @@ sidebar_position: 1
 ---
 
 # Instalación de Laravel 9
+<p>
+  <img src="/img/install.jpg" alt="Descripción de la imagen"  className="image-center"/>
+</p>
+
+
 
 ## Instalación
 Para instalar **Laravel 9**, necesitará tener **PHP** y un gestor de paquetes como **Composer** instalados en su sistema. Siga estos pasos para instalar Laravel 9:
 
-Existen dos metodos para instalar Laravel
+Existen dos métodos para instalar Laravel
 
 :::tip Instalación local vs global
-La diferencia entre una instalación global y una local de Laravel 9 radica en dónde se encuentra disponible el comando laravel para su uso.
+La diferencia entre una instalación global y una local de Laravel 9 radica en dónde se encuentra disponible el comando Laravel para su uso.
 
-Una instalación global de Laravel significa que el comando laravel está disponible en cualquier ubicación en tu sistema, lo que te permite crear nuevos proyectos de Laravel y ejecutar comandos de Laravel desde cualquier directorio.
+Una instalación global de Laravel significa que el comando Laravel está disponible en cualquier ubicación en tu sistema, lo que te permite crear nuevos proyectos de Laravel y ejecutar comandos de Laravel desde cualquier directorio.
 
 Por otro lado, una instalación local de Laravel significa que el comando laravel sólo está disponible dentro del directorio del proyecto Laravel en el que lo instalaste.
 

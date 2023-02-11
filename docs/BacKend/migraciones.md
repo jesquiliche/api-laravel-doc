@@ -11,7 +11,7 @@ Este es el modelo entidad/relación de nuestra BB.DD.
 ### Creación de relaciones
 
 En Laravel, puedes crear relaciones entre tablas usando migraciones. Aquí hay un ejemplo de código que muestra cómo crear una relación de uno a muchos:
-```php
+```js
 <?php
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -73,7 +73,7 @@ Para más información consulte [la documentación oficial de Laravel.](httbash:
 
 ## Generando migraciones en Laravel
 
-Tecle el siguiente comando para crear la migración de la tabla categorias.
+Tecle el siguiente comando para crear la migración de la tabla categorías.
 
 ```bash
 php artisan make:migration create_categorias_table
@@ -94,10 +94,10 @@ Luego, puedes editar ese archivo para definir las columnas que deseas agregar a 
 
 ## Definiendo las tablas de la BB.DD
 
-### Tabla categorias
+### Tabla categorías
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
-```bash title="Migración de categorias"
+```bash title="Migración de categorías"
 php artisan make:migration create_categorias_table
 ```
 Si todo a marchado bien, deberia haberse creado un fichero PHP dentro de la carpeta database/migrations.
@@ -106,10 +106,10 @@ Si todo a marchado bien, deberia haberse creado un fichero PHP dentro de la carp
 Siga la convención en sus creaciones de tabla  utilizando **create_nombre_de_tabla_table**, si quiere evitarse problemas en el futuro.
 :::
 
-Dirijase al directorio database/migrations y edite al fichero con la migración.
+Diríjase al directorio database/migrations y edite al fichero con la migración.
 
 Copie el siguiente código y sustituya el código del fichero.
-```php
+```js
 
 <?php
 
@@ -184,26 +184,26 @@ Estos son algunos de los tipos de datos más comunes que puedes usar en tus migr
 
 El código crea una clase anónima que extiende la clase Migration de Illuminate y define dos métodos: up() y down().
 
-El método up() es invocado cuando se ejecuta el comando php artisan migrate y se utiliza para crear la tabla "categorias" en la base de datos con las siguientes columnas:
+El método up() es invocado cuando se ejecuta el comando php artisan migrate y se utiliza para crear la tabla "categorías" en la base de datos con las siguientes columnas:
 
 id: una columna con clave primaria que se genera automáticamente como una secuencia incremental.
 nombre: una columna de tipo cadena con un tamaño máximo de 150 caracteres que es única.
 descripcion: una columna de tipo texto.
 imagen: una columna de tipo texto que puede ser nula.
 created_at y updated_at: dos columnas de tipo fecha y hora que se generan automáticamente y se actualizan automáticamente al insertar o actualizar un registro.
-El método down() es invocado cuando se ejecuta el comando php artisan migrate:rollback y se utiliza para eliminar la tabla "categorias".
+El método down() es invocado cuando se ejecuta el comando php artisan migrate:rollback y se utiliza para eliminar la tabla "categorías".
 
-### Tabla subcategorias
+### Tabla subcategorías
 
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
-```bash title="Migración de categorias"
-php artisan make:migration create_subcategorias_table
+```bash title="Migración de categorías"
+php artisan make:migration create_categorias_table
 ```
-Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
+Diríjase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
 
-Sustituya el código generado por el siguinte código:
-```PHP
+Sustituya el código generado por el siguiente código:
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -265,10 +265,10 @@ Para crear la migración ejecute el siguiente comando desde su terminal.
 ```bash title="Migración de categorias"
 php artisan make:migration create_ivas_table
 ```
-Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
+Diríjase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
 
 Sustituya el código generado por el siguinte código:
-```PHP
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -311,10 +311,10 @@ Para crear la migración ejecute el siguiente comando desde su terminal.
 ```bash title="Migración de categorias"
 php artisan make:migration create_productos_table
 ```
-Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
+Diríjase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
 
 Sustituya el código generado por el siguinte código:
-```PHP
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -367,10 +367,10 @@ Para crear la migración ejecute el siguiente comando desde su terminal.
 ```bash title="Migración de ofertas"
 php artisan make:migration create_ofertas_table
 ```
-Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
+Diríjase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
 
 Sustituya el código generado por el siguinte código:
-```PHP
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -418,10 +418,10 @@ Para crear la migración ejecute el siguiente comando desde su terminal.
 ```bash title="Migración de proveedores"
 php artisan make:migration create_proveedores_table
 ```
-Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
+Diríjase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
 
 Sustituya el código generado por el siguinte código:
-```PHP
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -470,7 +470,7 @@ Para crear la migración ejecute el siguiente comando desde su terminal.
 ```bash title="Migración de producto_proveerdor"
 php artisan make:migration create_producto_proveedor_table
 ```
-Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
+Diríjase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
 
 :::tip información
 Esta tabla se utiliza para crear una relación mucho a muchos entre productos y proveedores.
@@ -478,7 +478,7 @@ Esta tabla se utiliza para crear una relación mucho a muchos entre productos y 
 
 
 Sustituya el código generado por el siguinte código:
-```PHP
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -531,10 +531,10 @@ Para crear la migración ejecute el siguiente comando desde su terminal.
 ```bash title="Migración de provincias"
 php artisan make:migration create_provincias_table
 ```
-Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
+Diríjase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
 
 Sustituya el código generado por el siguinte código:
-```PHP
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -579,10 +579,10 @@ Para crear la migración ejecute el siguiente comando desde su terminal.
 ```bash title="Migración de poblaciones"
 php artisan make:migration create_poblaciones_table
 ```
-Dirijase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
+Diríjase el directorio database/migrations y siga el mismo procedimiento que el ejemplo anterior.
 
 Sustituya el código generado por el siguinte código:
-```PHP
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -631,7 +631,7 @@ php artisan make:migration add_foreign_key_proveedores_table
 ```
 Sustituya el código generador por el siguiente código:
 
-```php
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -694,7 +694,7 @@ La migración crea una vista llamada "v_productos" en la base de datos. La vista
 :::
 
 Sustituya el código generado por el siguiente código:
-```php
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -752,7 +752,7 @@ php artisan make:migration create_view_ofertas
 Este código define una migración en PHP para la creación y eliminación de una vista en una base de datos relacional. La vista se llama "v_ofertas" y se crea a partir de una unión de los datos de las tablas "v_productos" y "ofertas". La vista incluirá las siguientes columnas: "id", "nombre", "descripción", "iva_id", "subcategoría", "categoría", "marca", "imAGEN", "descripción_oferta" y "id_oferta". La función "down" se utiliza para eliminar la vista.
 :::
 
-```php
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -805,7 +805,12 @@ return new class extends Migration
 
 ### Vista v_proveedor
 
-```php
+Ejecute el siguiente comando desde su terminal:
+
+```bach
+php artisan 
+
+```js
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -841,5 +846,38 @@ return new class extends Migration
 };
 ?>
 ```
+Este código crea una migración de Laravel para crear una vista llamada **"v_proveedores"**. La vista se basa en una consulta SQL que une tres tablas: **"proveedores", "poblaciones" y "provincias"**. La vista mostrará información de los proveedores con los nombres de la población y la provincia correspondiente.
+
+El método "up" se ejecuta cuando se ejecuta el comando **"php artisan migrate"** para aplicar la migración y crear la vista. El método "down" se ejecuta cuando se ejecuta el comando **"php artisan migrate:rollback"** para revertir la migración y eliminar la vista.
+## ¿Cómo ejecutar las migraciones?
+
+Desde la terminal ejecutar el siguiente comando:
+
+```bash title="Creación vista v_ofertas"
+php artisan make:migration create_view_proveedor
+```
+
+```bash
+php artisan migrate
+```
+:::tip Opciones del comando
+php artisan migrate es un comando que se utiliza en Laravel para realizar migraciones en la base de datos. Con este comando, Laravel crea o modifica las tablas en la base de datos según las definiciones especificadas en las migraciones.
+
+Además, también existen otros comandos relacionados con migraciones en Laravel:
+
+- **php artisan migrate:install:** Este comando crea la tabla de migraciones en la base de datos.
+
+- **php artisan migrate:rollback:** Este comando revierte la última migración realizada.
+
+- **php artisan migrate:status:** Este comando muestra el estado de las migraciones, es decir, si están pendientes, realizadas o revertidas.
+
+- **php artisan migrate:refresh:** Este comando revierte todas las migraciones y las vuelve a ejecutar.
+
+- **php artisan migrate:fresh:** Este  comando borra todas las tablas de la base de datos y crea todas las tablas y vuelve a ejecutar el método up. Se utiliza en sustitución de **refresh** cuando alguna tabla no ha podido borrarse.
+- **php artisan migrate:reset:** Este comando revierte todas las migraciones.
+
+Estos son algunos de los comandos más comunes que se utilizan con el fin de gestionar las migraciones en Laravel.
+:::
+
 
 
