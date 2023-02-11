@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Creando los modelos
 
-### ¿Qué es Elocuent?
+## ¿Qué es Elocuent?
 
 <p>
   <img src="/img/orm.png" alt="Descripción de la imagen" className="image-center"/>
@@ -26,7 +26,7 @@ ModelName::find($id): Obtiene un registro en base a su identificador.
 No se preocupe si de momento no entiende estos comandos los iremos viendo a medida que vallamos realizando este proyecto.
 Para más información consulte la [documentación oficial](https://laravel.com/docs/9.x/readme)
 
-### ¿Cómo crear un modelo?
+## ¿Cómo crear un modelo?
 
 Para crear un modelo en Laravel, se puede utilizar el comando de Artisan en la terminal:
 
@@ -59,7 +59,7 @@ class Producto extends Model
 
 Después de crear el modelo, se pueden agregar los atributos y métodos necesarios para interactuar con la tabla correspondiente en la base de datos.çç
 
-### Relaciones en Elocuent(Conceptos)
+## Relaciones en Elocuent(Conceptos)
 
 :::tip Uno a uno
 En Laravel, una relación "uno a uno" significa que un registro de una tabla está asociado con exactamente un registro en otra tabla. Por ejemplo, un usuario puede tener un solo perfil, y un perfil puede ser de un solo usuario.
@@ -181,7 +181,40 @@ return $this->belongsToMany(Role::class, 'user_roles');
 
 :::
 
-### Modelo Categoría
+## Tinker
+
+Tinker es una herramienta de **REPL (Read-Eval-Print Loop)** de Laravel que te permite interactuar con tu aplicación de Laravel desde la consola. Con Tinker, puedes ejecutar código PHP, consultar y modificar la información en la base de datos, y ejecutar otros comandos relacionados con Laravel.
+
+Para usar **Tinker**, abre la consola en tu proyecto de Laravel y ejecuta el comando php artisan tinker. Una vez que se abra la sesión de Tinker, puedes escribir cualquier código PHP y ver los resultados en tiempo real. Por ejemplo, puedes consultar información de la base de datos, crear nuevos registros y modificar registros existentes.
+
+Aquí hay algunos ejemplos de lo que puedes hacer con Tinker:
+
+Consultar información de una tabla:
+
+```js
+>>> App\Models\Producto::all()
+```
+
+Crear un nuevo registro:
+
+```js
+>>> $producto = new App\Models\Producto;
+>>> $producto->nombre = "Producto 1";
+>>> $producto->save()
+```
+
+Modificar un registro existente:
+
+```js
+>>> $producto = App\Models\Producto::find(1);
+>>> $producto->nombre = "Producto actualizado";
+>>> $producto->save()
+```
+
+Tinker es una herramienta muy útil para probar código rápidamente y ver los resultados sin tener que recargar la página o escribir código adicional en tu aplicación de Laravel. ¡Disfruta!
+
+## Modelos
+### Categoría
 
 Ejecute el siguiente comando en su terminal:
 
@@ -239,7 +272,7 @@ foreach ($categoria->subcategorias as $subcategoria) {
 </p>
 Este código busca una categoría con ID 1 y luego imprime el nombre de todas sus subcategorías.
 
-### Modelo Subcategoría
+### Subcategoría
 
 Ejecute el siguiente comando en su terminal:
 
@@ -285,7 +318,7 @@ La función "categoria()" es una relación **"belongsTo"** que indica que una su
 
 La función **"productos()"** es una relación **"hasMany"** que indica que una subcategoría puede tener varios productos asociados a ella. La relación se establece con el modelo _"Producto"_ de la aplicación.
 
-### Modelo Producto
+### Producto
 
 Ejecute el siguiente comando en su terminal:
 
@@ -356,7 +389,7 @@ $brand = $product->marca;
 $offer = $product->oferta;
 $suppliers = $product->proveedores;
 ```
-### Modelo Iva
+### Iva
 
 Ejecute el siguiente comando en su terminal:
 
@@ -398,7 +431,7 @@ Estos métodos se utilizan para acceder a los datos relacionados, por ejemplo:
 $iva = Iva::find(1);
 $products = $iva->productos;
 ```
-### Modelo Marca
+### Marca
 Ejecute el siguiente comando en su terminal:
 
 ```bash
@@ -438,7 +471,7 @@ Estos métodos se utilizan para acceder a los datos relacionados, por ejemplo:
 $marca = Marca::find(1);
 $products = $marca->productos;
 ```
-### Modelo Oferta
+### Oferta
 
 Ejecute el siguiente comando en su terminal:
 
@@ -485,7 +518,7 @@ $oferta = Oferta::find(1);
 $products = $oferta->productos;
 ```
 
-### Modelo Provincia
+### Provincia
 
 Ejecute el siguiente comando en su terminal:
 
@@ -533,7 +566,7 @@ También puedes consultar registros existentes de la tabla de "Provincias" de la
 $provincias = Provincia::all();
 Esto te dará una colección de todos los registros en la tabla "provincias".
 ```
-### Modelo Poblacion
+### Poblacion
 
 Ejecute el siguiente comando en su terminal:
 
@@ -562,7 +595,7 @@ class Poblacion extends Model
 Este es una definición de clase PHP para un modelo Eloquent en el marco de trabajo Laravel. La clase se llama **"Poblacion"** y extiende la clase **"Model"**
 incorporada. La clase representa una tabla de base de datos **"poblaciones"** y especifica qué columnas en esa tabla se pueden llenar con datos (la propiedad **"fillable"**) - en este caso, **"codigo"** y **"nombre"**.
 
-### Modelo Proveedor
+### Proveedor
 
 Ejecute el siguiente comando en su terminal:
 

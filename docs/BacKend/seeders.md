@@ -276,5 +276,55 @@ Cada vez que se inserta un registro, se muestra un mensaje de impresión en la c
 
 La clase PoblacionSeeder se puede ejecutar utilizando el comando Artisan de Laravel "php artisan db:seed --class=PoblacionSeeder" para poblar la tabla "poblaciones" con los datos definidos en el archivo "poblaciones.json".
 
+### Ejecución masiva de los Seeders
+
+Para ejecutar múltiples seeders en Laravel, puedes utilizar el comando de *Artisan db:seed*. Este comando se utiliza para llenar la base de datos con datos iniciales y se ejecuta en la consola.
+
+Por defecto, el comando **db:seed** ejecutará todos los seeders registrados en el archivo DatabaseSeeder.php en el directorio database/seeds. El archivo **DatabaseSeeder.php** debería contener una clase que extienda de **Illuminate\Database\Seeder** y que llame a los seeders individuales a través del método call.
+
+Aquí esta el fichero **DatabaseSeeder.php** que ejecuta todo los seeders:
+
+```js
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $this->call(IvaSeeder::class);
+        $this->call(CategoriaSeeder::class);
+        $this->call(MarcaSeeder::class);
+        $this->call(SubcategoriaSeeder::class);
+        $this->call(ProductoSeeder::class);
+        $this->call(ProvinciaSeeder::class);
+        $this->call(PoblacionSeeder::class);
+        $this->call(ProveedorSeeder::class);
+    }
+}
+
+```
+Una vez que tengas tu archivo DatabaseSeeder.php configurado, puedes ejecutar el comando db:seed en la consola de la siguiente manera:
+
+```bash
+php artisan db:seed
+```
+Esto ejecutará todos los seeders registrados en el archivo DatabaseSeeder.php y llenará la base de datos con los datos iniciales especificados en cada seeder.
+
+También puede ejecutar los sideers después de ejecutar las migraciones con el siguiente comando:
+
+```bash
+php artisan migrate --seed
+```
+
 
 
