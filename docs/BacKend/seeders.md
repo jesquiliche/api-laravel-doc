@@ -1,10 +1,10 @@
 ---
 sidebar_position: 5
 ---
-# Rellenando la BB.DD
+# 📖Rellenando la BB.DD
 ## Seeders
 
-### ¿Qué es un seeder?
+### 📇¿Qué es un seeder?
 <p align="center">
   <img src="/img/bd.webp" alt="Descripción de la imagen"/>
 </p>
@@ -15,7 +15,7 @@ Cada seeder en Laravel extiende de la clase **Illuminate\Database\Seeder** y con
 
 Puedes crear varios seeders y ejecutarlos todos o solo algunos según tus necesidades. Al ejecutar un seeder, sus datos se insertan en la base de datos de forma automática, lo que te permite rellenar tus tablas de forma rápida y sencilla.
 
-### ¿Cómo se crea un seeder?
+### 📇¿Cómo se crea un seeder?
 
 <p align="center">
   <img src="/img/bd3.jpg" alt="Descripción de la imagen" className="image-center"/>
@@ -68,7 +68,7 @@ También puedes ejecutar un seeder específico utilizando el siguiente comando:
 ```bash
 php artisan db:seed --class=NombreSeeder
 ```
-### ivaSeeder
+### 📇ivaSeeder
 ```js
 <?php
 
@@ -113,7 +113,7 @@ El método run() primero crea una matriz de datos que contiene tres elementos, c
 
 La clase IvaSeeder se puede ejecutar utilizando el comando Artisan de Laravel "php artisan db:seed --class=IvaSeeder" para poblar la tabla "ivas" con los datos definidos en el método run().
 
-### marcaSeeder
+### 📇marcaSeeder
 ```js title="database\seeders\MarcaSeeder.php"
 <?php
 
@@ -190,7 +190,7 @@ El método run() primero crea una matriz de datos que contiene diez elementos, c
 
 La clase MarcaSeeder se puede ejecutar utilizando el comando Artisan de Laravel **"php artisan db:seed --class=MarcaSeeder"** para poblar la tabla "marcas" con los datos definidos en el método run().
 
-### poblacionSeeder
+### 📇poblacionSeeder
 ```js
 <?php
 
@@ -228,7 +228,7 @@ class PoblacionSeeder extends Seeder
 }
 ```
 
-### poblacionSeeder
+### 📇poblacionSeeder
 
 ```js
 <?php
@@ -276,7 +276,7 @@ Cada vez que se inserta un registro, se muestra un mensaje de impresión en la c
 
 La clase PoblacionSeeder se puede ejecutar utilizando el comando Artisan de Laravel "php artisan db:seed --class=PoblacionSeeder" para poblar la tabla "poblaciones" con los datos definidos en el archivo "poblaciones.json".
 
-### Ejecución masiva de los Seeders
+### 📇Ejecución masiva de los Seeders
 
 Para ejecutar múltiples seeders en Laravel, puedes utilizar el comando de *Artisan db:seed*. Este comando se utiliza para llenar la base de datos con datos iniciales y se ejecuta en la consola.
 

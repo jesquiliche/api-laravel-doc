@@ -1,14 +1,14 @@
 ---
 sidebar_position: 3
 ---
-# Migraciones
-### Modelo ER
+# 📖Migraciones
+### 📇Modelo ER
 Este es el modelo entidad/relación de nuestra BB.DD.
 <p align="center">
   <img src="/img/modelo.png" alt="Descripción de la imagen"/>
 </p>
 
-### Creación de relaciones
+### 📇Creación de relaciones
 
 En Laravel, puedes crear relaciones entre tablas usando migraciones. Aquí hay un ejemplo de código que muestra cómo crear una relación de uno a muchos:
 ```js
@@ -94,7 +94,7 @@ Luego, puedes editar ese archivo para definir las columnas que deseas agregar a 
 
 ## Definiendo las tablas de la BB.DD
 
-### Tabla categorías
+### 📇Tabla categorías
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
 ```bash title="Migración de categorías"
@@ -193,7 +193,7 @@ imagen: una columna de tipo texto que puede ser nula.
 created_at y updated_at: dos columnas de tipo fecha y hora que se generan automáticamente y se actualizan automáticamente al insertar o actualizar un registro.
 El método down() es invocado cuando se ejecuta el comando php artisan migrate:rollback y se utiliza para eliminar la tabla "categorías".
 
-### Tabla subcategorías
+### 📇Tabla subcategorías
 
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
@@ -258,7 +258,7 @@ La columna categoria_id está definida como una clave foránea que se refiere a 
 - **created_at y updated_at:** dos columnas de tipo fecha y hora que se generan automáticamente y se actualizan automáticamente al insertar o actualizar un registro.
 El **método down()** es invocado cuando se ejecuta el comando php artisan migrate:rollback y se utiliza para eliminar la tabla "subcategorias".
 
-### Tabla ivas
+### 📇Tabla ivas
 
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
@@ -304,7 +304,7 @@ return new class extends Migration
 };
 ```
 
-### Tabla productos
+### 📇Tabla productos
 
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
@@ -360,7 +360,7 @@ return new class extends Migration
 
 
 ```
-### Tabla ofertas
+### 📇Tabla ofertas
 
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
@@ -411,7 +411,7 @@ return new class extends Migration
 };
 
 ```
-### Tabla proveedores
+### 📇Tabla proveedores
 
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
@@ -463,7 +463,7 @@ return new class extends Migration
 };
 ```
 
-### Tabla producto_proveedor
+### 📇Tabla producto_proveedor
 
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
@@ -524,7 +524,7 @@ La migración crea una tabla llamada "producto_proveedor" en la base de datos qu
 
 Además, establece relaciones entre la tabla "producto_proveedor" y las tablas "productos" y "proveedores" mediante claves foráneas. La función "up" se utiliza para aplicar la migración y crear la tabla, mientras que la función "down" se utiliza para revertir la migración y eliminar la tabla.
 
-### Tabla provincias
+### 📇Tabla provincias
 
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
@@ -572,7 +572,7 @@ return new class extends Migration
 ```
 La migración crea una tabla llamada provincias donde se guaradaran todas las provincias de España.
 
-### Tabla poblaciones
+### 📇Tabla poblaciones
 
 Para crear la migración ejecute el siguiente comando desde su terminal.
 
@@ -622,7 +622,7 @@ return new class extends Migration
 ```
 La migración crea una tabla llamada poblaciones donde se guaradaran todas las provincias de España.
 
-### Modificando la tabla proveedores
+### 📇Modificando la tabla proveedores
 
 En la siguiente migración modificaremos la tabla proveedores.
 
@@ -683,7 +683,7 @@ return new class extends Migration
 
 ## Creación de vistas
 
-### Vista v_productos
+### 📇Vista v_productos
 Ejecute la siguiente orde en su consola o terminal:
 
 ```bash title="Creación vista v_productos"
@@ -741,7 +741,7 @@ return new class extends Migration
     }
 };
 ```
-### Vista v_ofertas
+### 📇Vista v_ofertas
 
 Ejecute el siguiente comando en su terminal:
 
@@ -803,7 +803,7 @@ return new class extends Migration
 };
 ```
 
-### Vista v_proveedor
+### 📇Vista v_proveedor
 
 Ejecute el siguiente comando desde su terminal:
 

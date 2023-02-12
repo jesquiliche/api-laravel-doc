@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Creando los modelos
+# 📖Creando los modelos
 
 ## ¿Qué es Elocuent?
 
@@ -214,7 +214,7 @@ Modificar un registro existente:
 Tinker es una herramienta muy útil para probar código rápidamente y ver los resultados sin tener que recargar la página o escribir código adicional en tu aplicación de Laravel. ¡Disfruta!
 
 ## Modelos
-### Categoría
+### 📇Categoría
 
 Ejecute el siguiente comando en su terminal:
 
@@ -272,7 +272,7 @@ foreach ($categoria->subcategorias as $subcategoria) {
 </p>
 Este código busca una categoría con ID 1 y luego imprime el nombre de todas sus subcategorías.
 
-### Subcategoría
+### 📇Subcategoría
 
 Ejecute el siguiente comando en su terminal:
 
@@ -318,7 +318,7 @@ La función "categoria()" es una relación **"belongsTo"** que indica que una su
 
 La función **"productos()"** es una relación **"hasMany"** que indica que una subcategoría puede tener varios productos asociados a ella. La relación se establece con el modelo _"Producto"_ de la aplicación.
 
-### Producto
+### 📇Producto
 
 Ejecute el siguiente comando en su terminal:
 
@@ -389,7 +389,7 @@ $brand = $product->marca;
 $offer = $product->oferta;
 $suppliers = $product->proveedores;
 ```
-### Iva
+### 📇Iva
 
 Ejecute el siguiente comando en su terminal:
 
@@ -431,7 +431,7 @@ Estos métodos se utilizan para acceder a los datos relacionados, por ejemplo:
 $iva = Iva::find(1);
 $products = $iva->productos;
 ```
-### Marca
+### 📇Marca
 Ejecute el siguiente comando en su terminal:
 
 ```bash
@@ -471,7 +471,7 @@ Estos métodos se utilizan para acceder a los datos relacionados, por ejemplo:
 $marca = Marca::find(1);
 $products = $marca->productos;
 ```
-### Oferta
+### 📇Oferta
 
 Ejecute el siguiente comando en su terminal:
 
@@ -518,7 +518,7 @@ $oferta = Oferta::find(1);
 $products = $oferta->productos;
 ```
 
-### Provincia
+### 📇Provincia
 
 Ejecute el siguiente comando en su terminal:
 
@@ -566,7 +566,7 @@ También puedes consultar registros existentes de la tabla de "Provincias" de la
 $provincias = Provincia::all();
 Esto te dará una colección de todos los registros en la tabla "provincias".
 ```
-### Poblacion
+### 📇Poblacion
 
 Ejecute el siguiente comando en su terminal:
 
@@ -595,7 +595,7 @@ class Poblacion extends Model
 Este es una definición de clase PHP para un modelo Eloquent en el marco de trabajo Laravel. La clase se llama **"Poblacion"** y extiende la clase **"Model"**
 incorporada. La clase representa una tabla de base de datos **"poblaciones"** y especifica qué columnas en esa tabla se pueden llenar con datos (la propiedad **"fillable"**) - en este caso, **"codigo"** y **"nombre"**.
 
-### Proveedor
+### 📇Proveedor
 
 Ejecute el siguiente comando en su terminal:
 
