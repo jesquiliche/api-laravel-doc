@@ -5,10 +5,8 @@ sidebar_position: 4
 # 📖Creando los modelos
 
 ## ¿Qué es Elocuent?
+![Descripcion de la imagen"](/assets/images/orm.png
 
-<p>
-  <img src="/images/orm.png" alt="Descripción de la imagen" className="image-center"/>
-</p>
 Eloquent es el ORM (Object-Relational Mapping) integrado en Laravel, que permite trabajar con las bases de datos de manera objetual. Es decir, Eloquent permite interactuar con las tablas de la base de datos a través de modelos en lugar de escribir consultas SQL manualmente. Cada modelo de Eloquent representa una tabla de la base de datos y proporciona métodos para interactuar con la información almacenada en la tabla. Con Eloquent, se pueden realizar operaciones comunes de CRUD (Crear, Leer, Actualizar y Borrar) de manera fácil y sencilla.
 
 :::tip CRUD con Eloquent
@@ -268,7 +266,7 @@ foreach ($categoria->subcategorias as $subcategoria) {
 ```
 
 <p align="center">
-  <img src="/images/categoria.png" alt="Descripción de la imagen"/>
+  <img src="/assets/images/categoria.png" alt="Descripción de la imagen"/>
 </p>
 Este código busca una categoría con ID 1 y luego imprime el nombre de todas sus subcategorías.
 

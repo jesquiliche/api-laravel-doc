@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'API COMERCIO',
   tagline: 'Desarrollo de una API REST en laravel 9',
-  favicon: 'images/favicon.ico',
+  favicon: 'assets/images/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://jesquiliche.github.io',
@@ -64,12 +64,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'images/logo.jpeg',
+      image: 'assets/images/logo.jpeg',
       navbar: {
         title: 'JQE Projects',
         logo: {
           alt: 'My Site Logo',
-          src: 'images/logo.jpeg',
+          src: 'assets/images/logo.jpeg',
         },
         items: [
           {
@@ -111,11 +111,24 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Jesús Quintana Esquiliche.`,
       },
+      
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
+    
 };
+presets: [
+  [
+    '@docusaurus/preset-classic',
+    {
+      // ...
+      // otras configuraciones
+      // ...
+      staticImageImportPath: 'static',
+    },
+  ],
+]
 
 module.exports = config;

@@ -2,9 +2,7 @@
 sidebar_position: 1
 ---
 # 📖Conceptos básicos
-<p align="center">
-  <img src="/images/rest_api.png" alt="Descripción de la imagen" className="image-center"/>
-</p>
+![Conceptos](/assets/images/rest_api.png)
 
 ## Conceptos
 **Recursos:** Un recurso es cualquier elemento o entidad sobre la que se realizan operaciones en una API REST. Por ejemplo, un usuario, una tarea, una publicación, etc. Cada recurso se identifica de manera única mediante una dirección URL.

@@ -4,9 +4,8 @@ sidebar_position: 3
 # 📖Migraciones
 ### 📇Modelo ER
 Este es el modelo entidad/relación de nuestra BB.DD.
-<p align="center">
-  <img src="/images/modelo.png" alt="Descripción de la imagen"/>
-</p>
+
+![Mi imagen](/assets/images/modelo.png)
 
 ### 📇Creación de relaciones
 

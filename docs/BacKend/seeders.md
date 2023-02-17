@@ -5,9 +5,7 @@ sidebar_position: 5
 ## Seeders
 
 ### 📇¿Qué es un seeder?
-<p align="center">
-  <img src="/images/bd.webp" alt="Descripción de la imagen"/>
-</p>
+![Seeder](/assets/images/bd.webp)
 
 Un seeder en Laravel es una clase que se utiliza para poblar una base de datos con datos de prueba. Los seeders son útiles para probar aplicaciones, crear datos de prueba para desarrolladores y para personalizar una base de datos con información específica.
 
@@ -18,7 +16,7 @@ Puedes crear varios seeders y ejecutarlos todos o solo algunos según tus necesi
 ### 📇¿Cómo se crea un seeder?
 
 <p align="center">
-  <img src="/images/bd3.jpg" alt="Descripción de la imagen" className="image-center"/>
+  <img src="/assets/images/bd3.jpg" alt="Descripción de la imagen" className="image-center"/>
 </p>
 
 

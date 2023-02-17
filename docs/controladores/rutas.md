@@ -2,9 +2,7 @@
 sidebar_position: 6
 ---
 # 📖Rutas
-<p>
-  <img src="/images/rutas.jpeg" alt="Descripción de la imagen"  className="image-center"/>
-</p>
+![Conceptos](/assets/images/rutas.jpeg)
 
 ## ¿Qué es una ruta?
 

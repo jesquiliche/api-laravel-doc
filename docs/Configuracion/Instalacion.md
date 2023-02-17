@@ -3,9 +3,7 @@ sidebar_position: 1
 ---
 
 # 📖Instalación de Laravel 9
-<p>
-  <img src="/images/install.jpg" alt="Descripción de la imagen"  className="image-center"/>
-</p>
+![Seeder](/assets/images/install.jpg)
 
 ## Instalación
 Para instalar **Laravel 9**, necesitará tener **PHP** y un gestor de paquetes como **Composer** instalados en su sistema. Siga estos pasos para instalar Laravel 9:
