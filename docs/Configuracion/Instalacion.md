@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 📖Instalación de Laravel 9
 <p>
-  <img src="/img/install.jpg" alt="Descripción de la imagen"  className="image-center"/>
+  <img src="/images/install.jpg" alt="Descripción de la imagen"  className="image-center"/>
 </p>
 
 ## Instalación

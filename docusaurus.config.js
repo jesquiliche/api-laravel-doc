@@ -8,18 +8,20 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'API COMERCIO',
   tagline: 'Desarrollo de una API REST en laravel 9',
-  favicon: 'img/favicon.ico',
+  favicon: 'images/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://jesquiliche.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/api-laravel-doc',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'JQE Project', // Usually your GitHub org/user name.
-  projectName: 'API COMERCIO', // Usually your repo name.
+  organizationName: 'jesquiliche', // Usually your GitHub org/user name.
+  projectName: 'api-laravel-doc', // Usually your repo name.
+  deploymentBranch:'gh-pages',
+  trailingSlash:false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -62,12 +64,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/logo.jpeg',
+      image: 'images/logo.jpeg',
       navbar: {
         title: 'JQE Projects',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.jpeg',
+          src: 'images/logo.jpeg',
         },
         items: [
           {

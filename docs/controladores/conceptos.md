@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 # 📖Conceptos básicos
 <p align="center">
-  <img src="/img/rest_api.png" alt="Descripción de la imagen" className="image-center"/>
+  <img src="/images/rest_api.png" alt="Descripción de la imagen" className="image-center"/>
 </p>
 
 ## Conceptos

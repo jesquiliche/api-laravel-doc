@@ -5,7 +5,7 @@ sidebar_position: 3
 ### 📇Modelo ER
 Este es el modelo entidad/relación de nuestra BB.DD.
 <p align="center">
-  <img src="/img/modelo.png" alt="Descripción de la imagen"/>
+  <img src="/images/modelo.png" alt="Descripción de la imagen"/>
 </p>
 
 ### 📇Creación de relaciones

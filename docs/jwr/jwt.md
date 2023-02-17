@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 📖JSON Web Token
 <p class="image-center">
-  <img src="/img/jwt.png" alt="Descripción de la imagen"/>
+  <img src="/images/jwt.png" alt="Descripción de la imagen"/>
 </p>
 
 ## ¿Qué es JWT?

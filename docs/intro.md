@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 # Introducción a las APIs
 <p class="image-center">
-  <img src="/img/api_rest.png" alt="Descripción de la imagen"/>
+  <img src="/images/api_rest.png" alt="Descripción de la imagen"/>
 </p>
 
 ## ¿Qué son las APIs?
