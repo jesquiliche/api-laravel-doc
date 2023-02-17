@@ -64,13 +64,13 @@ Ahora vamos a ver como obtener todas las categorías. Para ello tome como ejempl
 
 ![Mi imagen](/img/get_categorias.png)
 
-### 📇Obtener una categoria concreta (método DELETE)
+### 📇Obtener una categoria concreta (método GET)
 
 Este ejemplo ilustra como obtener los datos de una categoria concreta, el número 2 en la uri indica el id de la categoria.
 
 ![Mi imagen](/img/get_categorias2.png)
 
-### 📇Borrar una categoria concreta (método GET)
+### 📇Borrar una categoria concreta (método DELETE)
 
 Este ejemplo ilustra como borrar una categoria, el número 7 en la uri indica el id de la categoria.
 

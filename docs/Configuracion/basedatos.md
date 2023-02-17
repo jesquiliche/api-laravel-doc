@@ -9,10 +9,6 @@ Para configurar una base de datos en un proyecto Laravel, necesitas realizar los
 
 Crear una nueva base de datos en MySQL y anotar su nombre, usuario y contraseña.
 En nuestro caso la BB.DD se llamara comercio, el usuario sera root sin contraseña. 
-<video controls class="video">
-  <source src="/Videos/video.mp4" type="video/mp4" />
-  Lo siento, tu navegador no soporta videos en formato MKV.
-</video>
 
 :::caution A tener en cuenta
 En un sistema de producción real sería altamente recomendable cambiar el usuario y la contraseña, para evitar posibles ataques de Hacker
