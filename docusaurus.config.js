@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'API COMERCIO',
+  title: 'API LARAVEL DOC',
   tagline: 'Desarrollo de una API REST en laravel 9',
   favicon: 'assets/images/favicon.ico',
 
