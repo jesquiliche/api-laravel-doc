@@ -3,9 +3,6 @@ sidebar_position: 2
 ---
 
 # 📖Pruebas con Postman
-<p class="image-center">
-  <img src="/assets/images/postman.png" alt="Descripción de la imagen"/>
-</p>
 
 ## ¿Qué es Postman?
 
